@@ -20,9 +20,23 @@ class UserLoginLogoutTestCase(TestCase):
         }
         self.user = User.objects.create_user(**defaults)
 
-    def test_login_ok(self):
+    def test_login_ok_with_username(self):
         response = self.api_client.post(path=self.login_endpoint, data={
             'login': 'BlackHoler',
+            'password': 'Solih1234!@#$'
+        })
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+
+    def test_login_ok_with_phone_number(self):
+        response = self.api_client.post(path=self.login_endpoint, data={
+            'login': '+998912958899',
+            'password': 'Solih1234!@#$'
+        })
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+
+    def test_login_ok_with_email(self):
+        response = self.api_client.post(path=self.login_endpoint, data={
+            'login': 'BilolMuhammadSolih@gmail.com',
             'password': 'Solih1234!@#$'
         })
         self.assertEqual(response.status_code, status.HTTP_200_OK)
