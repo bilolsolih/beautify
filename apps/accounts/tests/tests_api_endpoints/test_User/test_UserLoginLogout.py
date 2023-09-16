@@ -53,7 +53,6 @@ class UserLoginLogoutTestCase(TestCase):
         self.assertEqual(response.status_code, status.HTTP_404_NOT_FOUND)
         self.assertIn('User doesn\'t exist.', response.content.decode('utf-8'))
 
-
     def test_logout_ok(self):
         self.client.force_login(user=self.user)
         response = self.client.get(path=self.logout_endpoint)
