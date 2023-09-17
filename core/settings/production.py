@@ -2,7 +2,7 @@ from .base import *  # noqa
 
 DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['bilolsolih.pythonanywhere.com']
 
 DATABASES = {
     'default': {
