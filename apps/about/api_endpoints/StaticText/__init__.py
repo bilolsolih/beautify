@@ -1,1 +1,1 @@
-from .List import *  # noqa
+from .StaticText_List import *  # noqa

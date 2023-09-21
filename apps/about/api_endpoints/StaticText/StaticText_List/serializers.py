@@ -1,7 +1,8 @@
 from rest_framework.serializers import ModelSerializer
+from apps.about.models import StaticText
 
 
 class StaticTextListSerializer(ModelSerializer):
     class Meta:
-        model = 'about.StaticText'
+        model = StaticText
         fields = ['type', 'content']
