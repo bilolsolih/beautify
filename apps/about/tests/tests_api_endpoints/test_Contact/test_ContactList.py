@@ -2,16 +2,16 @@ from django.test import TestCase
 from django.urls import reverse
 from rest_framework.test import APIClient
 from rest_framework import status
-from apps.about.models import AdBanner
+from apps.about.models import Contact
 
 
-class AdBannerListTestCase(TestCase):
+class ContactListTestCase(TestCase):
     def setUp(self) -> None:
-        self.endpoint = reverse('about:ad_banner_list')
+        self.endpoint = reverse('about:contact_list')
         self.api_client = APIClient()
-        AdBanner.objects.create(title='test ad banner', photo='/testdata/images/1.jpg', link='http://127.0.0.1:8000/doc')
+        Contact.objects.create(full_name='test contact', email='test@email.com', phone_number='+998900000000')
 
     def test_ok(self):
         response = self.api_client.get(self.endpoint)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
-        self.assertIn('http://127.0.0.1:8000/doc', response.content.decode('utf-8'))
+        self.assertIn('test contact', response.content.decode('utf-8'))
