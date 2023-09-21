@@ -12,4 +12,4 @@ class PostRetrieveSerializer(ModelSerializer):
 
     class Meta:
         model = 'blog.Post'
-        fields = ['title', 'photo', 'content', 'comments', 'created']
+        fields = ['id', 'title', 'photo', 'content', 'comments', 'created']

@@ -8,3 +8,6 @@ class PostRetrieveAPIView(RetrieveAPIView):
     queryset = Post.objects.all()
     serializer_class = PostRetrieveSerializer
     lookup_field = 'pk'
+
+
+__all__ = ['PostRetrieveAPIView']
