@@ -5,8 +5,9 @@ from .drf_schemas import swagger_patterns
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('accounts/', include('apps.accounts.urls', namespace='accounts')),
-    path('about/', include('apps.about.urls', namespace='about')),
+    path('api/v1/accounts/', include('apps.accounts.urls', namespace='accounts')),
+    path('api/v1/about/', include('apps.about.urls', namespace='about')),
+    path('api/v1/store/', include('apps.store.urls', namespace='store')),
 ]
 
 urlpatterns += swagger_patterns

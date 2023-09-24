@@ -138,7 +138,7 @@ class Video(models.Model):
 class Review(TimeStampedModel):
     user = models.ForeignKey('accounts.User', related_name='reviews', on_delete=models.SET_NULL, null=True, verbose_name=_('Reviewer user'))
     product = models.ForeignKey('store.Product', related_name='reviews', on_delete=models.CASCADE, verbose_name=_('Reviewed product'))
-    rating = models.PositiveIntegerField(_('Rating'), validators=[MaxValueValidator(5, message=_('Max allowed number is 5'))])
+    rating = models.PositiveIntegerField(_('Rating'), validators=[MaxValueValidator(5, message=_('Max rating is 5'))])
     review = models.CharField(_('Review'), max_length=512, blank=True, null=True)
 
     class Meta:

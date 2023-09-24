@@ -22,6 +22,7 @@ class CustomPageNumberPagination(PageNumberPagination):
 
 
 class ProductFilterSet(FilterSet):
+    title = django_filters.CharFilter(field_name='title', lookup_expr='icontains')
     price = django_filters.NumericRangeFilter(field_name='price')
     collections = django_filters.ModelMultipleChoiceFilter(field_name='collections', queryset=Collection.objects.all(), to_field_name='pk')
     brands = django_filters.ModelMultipleChoiceFilter(field_name='brand', queryset=Brand.objects.all(), to_field_name='pk')
@@ -29,14 +30,7 @@ class ProductFilterSet(FilterSet):
 
     class Meta:
         model = Product
-        fields = {
-            'title': 'icontains',
-            'vendor_code': 'iexact',
-            'category': 'iexact',
-            'is_new': 'iexact',
-            'is_hit': 'iexact',
-            'is_available': 'iexact',
-        }
+        fields = ['vendor_code', 'category', 'is_new', 'is_hit', 'is_available']
         ordering_fields = ['price', 'title', 'popularity']
 
 
