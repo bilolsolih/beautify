@@ -11,6 +11,7 @@ class AdBanner(models.Model):
     title = models.CharField(_('Title'), max_length=128, blank=True, null=True)
     photo = models.ImageField(_('Photo'), upload_to='images/banners/')
     link = models.URLField(_('Link'), blank=True, null=True)
+    is_active = models.BooleanField(_('Active status'), default=True)
 
     class Meta:
         verbose_name = _('AdBanner')
@@ -27,6 +28,7 @@ class Vacancy(TimeStampedModel):
     title = models.CharField(_('Job title'), max_length=256)
     location = models.CharField(_('Location'), max_length=256)
     vacancies = models.PositiveIntegerField(_('Number of vacant positions'), blank=True, null=True)
+    is_active = models.BooleanField(_('Active status'), default=True)
 
     class Meta:
         verbose_name = _('Vacancy')
