@@ -68,12 +68,12 @@ class UserLoginLogoutTestCase(TestCase):
         self.assertIn('User doesn\'t exist.', response.content.decode('utf-8'))
 
     def test_logout_ok(self):
-        self.client.force_login(user=self.user)
-        response = self.client.get(path=self.logout_endpoint)
+        self.api_client.force_login(user=self.user)
+        response = self.api_client.get(path=self.logout_endpoint)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertIn('Logged out.', response.content.decode('utf-8'))
 
     def test_logout_not_authenticated(self):
-        response = self.client.get(path=self.logout_endpoint)
+        response = self.api_client.get(path=self.logout_endpoint)
         self.assertEqual(response.status_code, status.HTTP_401_UNAUTHORIZED)
         self.assertIn('Authentication credentials were not provided.', response.content.decode('utf-8'))

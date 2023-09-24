@@ -20,12 +20,12 @@ class UserRetrieveTestCase(TestCase):
         self.user = User.objects.create_user(**defaults)
 
     def test_retrieve_ok(self):
-        self.client.force_login(user=self.user)
-        response = self.client.get(path=self.endpoint)
+        self.api_client.force_login(user=self.user)
+        response = self.api_client.get(path=self.endpoint)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertIn('BilolMuhammadSolih@gmail.com', response.content.decode('utf-8'))
 
     def test_retrieve_not_authenticated(self):
-        response = self.client.get(path=self.endpoint)
+        response = self.api_client.get(path=self.endpoint)
         self.assertEqual(response.status_code, status.HTTP_401_UNAUTHORIZED)
         self.assertIn('Authentication credentials were not provided.', response.content.decode('utf-8'))
