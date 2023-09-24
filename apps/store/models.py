@@ -73,8 +73,8 @@ class Product(TimeStampedModel):
     skin_types = models.ManyToManyField('store.SkinType', related_name='products', blank=True, verbose_name=_('Suitable skin types'))
 
     price = models.PositiveIntegerField(_('Product price'))
-    discount = models.PositiveIntegerField(_('Discount'), default=0)
-    rating = models.DecimalField(_('Product rating'), max_digits=2, decimal_places=1, blank=True, null=True)
+    discount = models.PositiveIntegerField(_('Discount'), default=0, validators=[MaxValueValidator(100)])
+    rating = models.DecimalField(_('Product rating'), max_digits=2, decimal_places=1, default=0, blank=True, null=True)
 
     purchase_count = models.PositiveIntegerField(_('Purchase count'), default=0)
     views = models.PositiveIntegerField(_('Views count'), default=0)

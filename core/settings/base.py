@@ -28,7 +28,7 @@ THIRD_PARTY_APPS = [
     'ckeditor',
     'ckeditor_uploader',
     'phonenumber_field',
-    'drf_yasg'
+    'drf_yasg',
 ]
 
 USER_DEFINED_APPS = [
@@ -38,7 +38,7 @@ USER_DEFINED_APPS = [
     'apps.about',
     'apps.blog',
     'apps.cart',
-    'apps.payments'
+    'apps.payments',
 ]
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + USER_DEFINED_APPS
@@ -101,7 +101,5 @@ STATIC_URL = 'static/'
 STATIC_ROOT = BASE_DIR / 'static'
 MEDIA_URL = 'media/'
 MEDIA_ROOT = BASE_DIR / 'media'
-
-AUTH_USER_MODEL = 'accounts.User'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
