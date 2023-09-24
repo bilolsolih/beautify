@@ -24,8 +24,8 @@ class Brand(TimeStampedModel):
 
 class Category(TimeStampedModel):
     title = models.CharField(_('Category title'), max_length=128)
-    icon = models.ImageField(_('Category icon'), upload_to='images/store/categories/icons')
     description = RichTextField(_('Description'), blank=True, null=True)
+    icon = models.ImageField(_('Category icon'), upload_to='images/store/categories/icons')
 
     class Meta:
         verbose_name = _('Category')
